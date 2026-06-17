@@ -1,0 +1,49 @@
+/* app/notes/[id]/edit/NoteForm.module.css */
+.page {
+  min-height: 100vh;
+  background: var(--color-surface);
+}
+
+.formSection {
+  padding: 24px 0;
+}
+
+.fieldGroup {
+  margin-bottom: 20px;
+}
+
+.submitRow {
+  margin-top: 8px;
+}
+
+.submitBtn {
+  composes: btnPrimary from global;
+  width: 100%;
+}
+
+.deleteRow {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.cancelLink {
+  color: var(--color-text);
+  font-size: 0.875rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 10px 0;
+  min-height: 44px;
+  display: flex;
+  align-items: center;
+  text-decoration: underline;
+}
+
+@media (min-width: 640px) {
+  .submitBtn {
+    width: auto;
+    min-width: 120px;
+  }
+}
