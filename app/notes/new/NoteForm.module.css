@@ -1,0 +1,29 @@
+/* app/notes/new/NoteForm.module.css */
+.page {
+  min-height: 100vh;
+  background: var(--color-surface);
+}
+
+.formSection {
+  padding: 24px 0;
+}
+
+.fieldGroup {
+  margin-bottom: 20px;
+}
+
+.submitRow {
+  margin-top: 8px;
+}
+
+.submitBtn {
+  composes: btnPrimary from global;
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .submitBtn {
+    width: auto;
+    min-width: 120px;
+  }
+}
