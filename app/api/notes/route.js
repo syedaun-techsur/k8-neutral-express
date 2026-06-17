@@ -31,6 +31,10 @@ export async function POST(request) {
     } catch {
       return Response.json({ error: 'BAD_REQUEST', message: 'Invalid request body' }, { status: 400 });
     }
+    // Reject non-object payloads (strings, arrays, numbers, null) — they cannot contain a `title`
+    if (body === null || typeof body !== 'object' || Array.isArray(body)) {
+      return Response.json({ error: 'BAD_REQUEST', message: 'Invalid request body' }, { status: 400 });
+    }
     const title = typeof body.title === 'string' ? body.title.trim() : '';
     if (!title) {
       return Response.json({ error: 'TITLE_REQUIRED', message: 'Title is required' }, { status: 400 });
