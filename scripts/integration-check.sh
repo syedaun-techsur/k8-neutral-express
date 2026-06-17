@@ -72,7 +72,7 @@ echo "[US5] Search — typing partial title narrows list"
 SEARCH_RESULT=$(curl -s "$BASE/api/notes?q=Grocer")
 echo "$SEARCH_RESULT" | grep -q 'Groceries' && pass "GET /api/notes?q=Grocer returns matching note" || fail "GET /api/notes?q=Grocer did not return matching note"
 NO_MATCH=$(curl -s "$BASE/api/notes?q=zzzzzz_no_match_xyz")
-MATCH_COUNT=$(echo "$NO_MATCH" | grep -o '"id"' | wc -l | tr -d ' ')
+MATCH_COUNT=$(echo "$NO_MATCH" | (grep -o '"id"' || true) | wc -l | tr -d ' ')
 [ "$MATCH_COUNT" = "0" ] && pass "GET /api/notes?q=zzzzzz_no_match_xyz returns empty array" || fail "GET /api/notes?q=zzzzzz_no_match_xyz returned $MATCH_COUNT notes (expected 0)"
 
 # ── US5: Case-insensitive search ──

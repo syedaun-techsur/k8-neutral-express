@@ -4,21 +4,11 @@ const nextConfig = {
   experimental: {
     instrumentationHook: true,
   },
-  async headers() {
-    return [
-      {
-        // Apply to all routes — explicitly return empty array to avoid
-        // Next.js injecting X-Frame-Options: SAMEORIGIN by default.
-        // Do NOT add X-Frame-Options or frame-ancestors CSP here.
-        source: '/(.*)',
-        headers: [
-          // Intentionally no X-Frame-Options header.
-          // Intentionally no Content-Security-Policy with frame-ancestors.
-          // App must render inside a cross-origin iframe (F9 / US-9.1).
-        ],
-      },
-    ];
-  },
+  // No custom headers() function — Next.js 14 does not add X-Frame-Options
+  // by default, so omitting this function means no X-Frame-Options header
+  // is sent, allowing cross-origin iframe embedding (F9 / C-2).
+  // NOTE: an empty headers array (headers: []) causes Next.js 14 to throw
+  // "Invalid header found" on startup — must be omitted entirely.
 };
 
 export default nextConfig;
