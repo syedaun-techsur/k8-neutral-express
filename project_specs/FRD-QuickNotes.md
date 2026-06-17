@@ -140,21 +140,27 @@ QuickNotes is a single-user, no-auth, mobile-first note-taking app. It has one d
 - Empty state when filter matches zero notes
 - Restoring full list on input clear
 
-**Process (server-side approach — preferred):**
+**Process (required: keystroke-reactive — no Submit button):**
+
+Filtering **must** respond to every keystroke without requiring the user to press Enter or click a Search button. Either implementation approach below satisfies this requirement.
+
+**Implementation Option A — Client-side filtering (simplest):**
+1. Server renders all notes on initial load.
+2. JavaScript event listener attached to search `<input>` on `input` event.
+3. On each `input` event, iterate note cards; hide any card whose `title` text does not contain the filter string (case-insensitive).
+4. Show empty-state element if all cards are hidden; hide it when at least one card is visible.
+5. On clear (empty string), show all cards; hide empty-state element.
+
+**Implementation Option B — Server-side filtering via URL parameter:**
 1. User types into the search `<input>` on `/`.
-2. On input change (debounce optional), the URL is updated with `?q=<value>` (e.g., via `router.push` or a form submit).
+2. On input change with debounce (recommended: 150–300 ms), the URL is updated with `?q=<value>` via `router.push` or equivalent — **no form submit or Enter key required**.
 3. Server component receives `q` from `searchParams`.
 4. If `q` is non-empty (after trim), server queries: `SELECT * FROM notes WHERE title ILIKE $1 ORDER BY pinned DESC, created_at DESC` with parameter `'%' || q || '%'`.
 5. If `q` is empty or absent, server queries all notes (no WHERE clause).
 6. Results are rendered; if zero results, the empty state is shown.
 7. The search input is pre-populated with the current `q` value so page refreshes preserve the filter.
 
-**Process (client-side approach — acceptable alternative):**
-1. Server renders all notes on initial load.
-2. JavaScript event listener attached to search `<input>`.
-3. On `input` event, iterate note cards; hide any card whose `title` text does not contain the filter string (case-insensitive).
-4. Show empty-state element if all cards are hidden.
-5. On clear, show all cards; hide empty-state element.
+**Regardless of approach chosen**, the observable behavior must match: filtering updates within 200 ms of each keystroke with no user-initiated submit action.
 
 **Inputs:**
 - `q` (string, optional): search / filter text
@@ -196,6 +202,7 @@ QuickNotes is a single-user, no-auth, mobile-first note-taking app. It has one d
 
 **Sub-features:**
 - Create-note form with title, body, and pinned fields
+- Title input auto-focused on page load (keyboard appears immediately on mobile)
 - Client-side title validation (non-empty before submit)
 - `POST /api/notes` submission
 - Redirect to `/` on success
@@ -203,7 +210,7 @@ QuickNotes is a single-user, no-auth, mobile-first note-taking app. It has one d
 
 **Process:**
 1. User navigates to `/notes/new` (via "New note" link on the list page or directly).
-2. Server renders the create form: blank `title` input, blank `body` textarea, unchecked `pinned` checkbox.
+2. Server renders the create form: blank `title` input, blank `body` textarea, unchecked `pinned` checkbox. The `title` input **receives focus automatically on page load** (via `autoFocus` attribute or equivalent) so the keyboard appears immediately on mobile without an extra tap.
 3. User fills in the form and clicks the submit CTA.
 4. **Client-side validation:** If `title.trim()` is empty, display an inline validation message ("Title is required") and abort submission. Do not call the API.
 5. Client calls `POST /api/notes` with JSON body `{ "title": "<trimmed value>", "body": "<value or empty string>", "pinned": <true|false> }`.
@@ -326,9 +333,9 @@ QuickNotes is a single-user, no-auth, mobile-first note-taking app. It has one d
 **Description:** A "Delete" action is available on the edit page (`/notes/[id]/edit`). Before the note is permanently removed, a confirmation step is required to prevent accidental deletions. The confirmation may be implemented as an inline confirmation UI (preferred: a secondary confirm button or modal) or a browser `window.confirm()` dialog (acceptable). On confirmation, `DELETE /api/notes/[id]` is called and the user is redirected to `/`. On cancellation, nothing changes.
 
 **Terminology:**
-- **Confirmation step:** A required user action that confirms intent to delete before the API call is made; must be distinct from the initial delete trigger
-- **Inline confirmation:** A UI-level secondary prompt (e.g., button text changes to "Are you sure? Click to confirm" or a small modal) — preferred over browser dialog
-- **Browser confirm dialog:** `window.confirm("Delete this note?")` — acceptable but not preferred
+- **Confirmation step:** A required user action that confirms intent to delete before the API call is made; must be distinct from the initial delete trigger; **must display the note's title** so the user can verify they are deleting the correct note
+- **Inline confirmation:** A UI-level secondary prompt (e.g., button text changes to "Are you sure? Click to confirm" or a small modal) — preferred over browser dialog; must include the note title (e.g., "Delete 'Meeting notes'?")
+- **Browser confirm dialog:** `window.confirm("Delete 'Meeting notes'?")` where the note title is interpolated — acceptable but not preferred
 
 **Sub-features:**
 - "Delete" trigger button on the edit page
@@ -341,7 +348,7 @@ QuickNotes is a single-user, no-auth, mobile-first note-taking app. It has one d
 **Process:**
 1. Edit page (`/notes/[id]/edit`) renders a "Delete" button alongside the save CTA.
 2. User clicks "Delete".
-3. **Confirmation step:** System presents confirmation (inline UI change or `window.confirm()`).
+3. **Confirmation step:** System presents confirmation (inline UI change or `window.confirm()`) that **includes the note's title** (e.g., "Delete 'Meeting notes'?" or equivalent phrasing that makes the note title visible).
    - If user **cancels**: dismiss confirmation; return to normal edit form state; no API call made.
    - If user **confirms**: proceed to step 4.
 4. Client calls `DELETE /api/notes/[id]`.
@@ -360,6 +367,7 @@ QuickNotes is a single-user, no-auth, mobile-first note-taking app. It has one d
 
 **Validation:**
 - The delete action requires exactly one confirmation step — zero or two confirmation steps are both non-conformant
+- The confirmation prompt **must display the note's title** — a generic "Are you sure?" without identifying the note is non-conformant
 - `id` must be the same integer already present in the URL (no additional ID input by user)
 
 **Error States:**
@@ -813,6 +821,7 @@ Future candidates (out of scope for MVP):
 - `text` in PostgreSQL has no maximum length; application-level limits are not enforced in this MVP.
 - `timestamptz` stores timestamps with timezone offset; `now()` returns the current transaction time in UTC.
 - `boolean` stores `true`/`false`; PostgreSQL accepts `TRUE`/`FALSE`, `'t'`/`'f'`, `1`/`0` — the application layer should always pass a proper boolean.
+- **No `updated_at` column** — this is a deliberate MVP scope decision. Note edits do not update any timestamp. Implementers must not add `updated_at` to the schema without a spec change.
 
 ---
 

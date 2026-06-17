@@ -6,9 +6,9 @@
 **Description:** A "Delete" action is available on the edit page (`/notes/[id]/edit`). Before the note is permanently removed, a confirmation step is required to prevent accidental deletions. The confirmation may be implemented as an inline confirmation UI (preferred: a secondary confirm button or modal) or a browser `window.confirm()` dialog (acceptable). On confirmation, `DELETE /api/notes/[id]` is called and the user is redirected to `/`. On cancellation, nothing changes.
 
 **Terminology:**
-- **Confirmation step:** A required user action that confirms intent to delete before the API call is made; must be distinct from the initial delete trigger
-- **Inline confirmation:** A UI-level secondary prompt (e.g., button text changes to "Are you sure? Click to confirm" or a small modal) — preferred over browser dialog
-- **Browser confirm dialog:** `window.confirm("Delete this note?")` — acceptable but not preferred
+- **Confirmation step:** A required user action that confirms intent to delete before the API call is made; must be distinct from the initial delete trigger; **must display the note's title** so the user can verify they are deleting the correct note
+- **Inline confirmation:** A UI-level secondary prompt (e.g., button text changes to "Are you sure? Click to confirm" or a small modal) — preferred over browser dialog; must include the note title (e.g., "Delete 'Meeting notes'?")
+- **Browser confirm dialog:** `window.confirm("Delete 'Meeting notes'?")` where the note title is interpolated — acceptable but not preferred
 
 **Sub-features:**
 - "Delete" trigger button on the edit page
@@ -21,7 +21,7 @@
 **Process:**
 1. Edit page (`/notes/[id]/edit`) renders a "Delete" button alongside the save CTA.
 2. User clicks "Delete".
-3. **Confirmation step:** System presents confirmation (inline UI change or `window.confirm()`).
+3. **Confirmation step:** System presents confirmation (inline UI change or `window.confirm()`) that **includes the note's title** (e.g., "Delete 'Meeting notes'?" or equivalent phrasing that makes the note title visible).
    - If user **cancels**: dismiss confirmation; return to normal edit form state; no API call made.
    - If user **confirms**: proceed to step 4.
 4. Client calls `DELETE /api/notes/[id]`.
@@ -40,6 +40,7 @@
 
 **Validation:**
 - The delete action requires exactly one confirmation step — zero or two confirmation steps are both non-conformant
+- The confirmation prompt **must display the note's title** — a generic "Are you sure?" without identifying the note is non-conformant
 - `id` must be the same integer already present in the URL (no additional ID input by user)
 
 **Error States:**

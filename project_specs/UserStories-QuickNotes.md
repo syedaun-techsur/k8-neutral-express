@@ -41,7 +41,7 @@
 
 **Acceptance Criteria:**
 - [ ] Navigating to `/` renders a list of all notes stored in the database
-- [ ] Each note entry displays its `title` and a body snippet (first line or truncated body) so the content is recognisable at a glance
+- [ ] Each note entry displays its `title` so the note is identifiable at a glance
 - [ ] Notes whose `pinned` flag is `true` are displayed with a visible pinned indicator (e.g., a Gold `#FBCA5C` accent element or pin icon) distinct from un-pinned notes
 - [ ] Notes are ordered: pinned notes first (newest-first within pinned), then un-pinned notes (newest-first)
 - [ ] Each note card/row is a tappable link that navigates to `/notes/[id]/edit`
@@ -146,6 +146,7 @@
 
 **Acceptance Criteria:**
 - [ ] Navigating to `/notes/new` renders a blank form with: a `title` text input, a `body` textarea, a `pinned` checkbox (unchecked by default), and a Gold-accented submit CTA button
+- [ ] The `title` input receives focus automatically on page load — no extra tap required to start typing
 - [ ] Filling `title` = "Groceries" and `body` = "milk, eggs" and submitting calls `POST /api/notes` with `{ "title": "Groceries", "body": "milk, eggs", "pinned": false }`
 - [ ] On `201` response, the browser redirects to `/` where the new "Groceries" note is visible
 - [ ] The "New note" link on `/` navigates to `/notes/new`
@@ -262,6 +263,7 @@
 **Acceptance Criteria:**
 - [ ] A "Delete" button is visible on `/notes/[id]/edit` alongside the Save CTA
 - [ ] Clicking "Delete" triggers a confirmation step (inline confirm UI or `window.confirm()` dialog) before any API call is made
+- [ ] The confirmation prompt displays the note's title (e.g., "Delete 'Meeting notes'?") so the user can verify they are deleting the correct note
 - [ ] Confirming the deletion calls `DELETE /api/notes/[id]` and on `204` response redirects to `/`
 - [ ] The deleted note no longer appears in the list after redirect
 - [ ] Cancelling the confirmation returns the form to its normal state with no changes made and no API call issued

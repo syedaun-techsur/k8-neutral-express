@@ -11,6 +11,7 @@
 
 **Sub-features:**
 - Create-note form with title, body, and pinned fields
+- Title input auto-focused on page load (keyboard appears immediately on mobile)
 - Client-side title validation (non-empty before submit)
 - `POST /api/notes` submission
 - Redirect to `/` on success
@@ -18,7 +19,7 @@
 
 **Process:**
 1. User navigates to `/notes/new` (via "New note" link on the list page or directly).
-2. Server renders the create form: blank `title` input, blank `body` textarea, unchecked `pinned` checkbox.
+2. Server renders the create form: blank `title` input, blank `body` textarea, unchecked `pinned` checkbox. The `title` input **receives focus automatically on page load** (via `autoFocus` attribute or equivalent) so the keyboard appears immediately on mobile without an extra tap.
 3. User fills in the form and clicks the submit CTA.
 4. **Client-side validation:** If `title.trim()` is empty, display an inline validation message ("Title is required") and abort submission. Do not call the API.
 5. Client calls `POST /api/notes` with JSON body `{ "title": "<trimmed value>", "body": "<value or empty string>", "pinned": <true|false> }`.

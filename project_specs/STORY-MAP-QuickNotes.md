@@ -161,7 +161,7 @@ Full traceability: JTBD outcome → Journey stage → NaC statement → Story
 
 **JTBD addressed:** JTBD-01.1, JTBD-01.2, JTBD-01.3, JTBD-02.2, JTBD-02.3, JTBD-03.1, JTBD-03.2, JTBD-03.3
 
-**Stories (21 total — all P0):**
+**Stories (24 total — all P0):**
 
 | Story | Title | Epic | Primary Persona |
 |-------|-------|------|----------------|

@@ -17,21 +17,27 @@
 - Empty state when filter matches zero notes
 - Restoring full list on input clear
 
-**Process (server-side approach — preferred):**
+**Process (required: keystroke-reactive — no Submit button):**
+
+Filtering **must** respond to every keystroke without requiring the user to press Enter or click a Search button. Either implementation approach below satisfies this requirement.
+
+**Implementation Option A — Client-side filtering (simplest):**
+1. Server renders all notes on initial load.
+2. JavaScript event listener attached to search `<input>` on `input` event.
+3. On each `input` event, iterate note cards; hide any card whose `title` text does not contain the filter string (case-insensitive).
+4. Show empty-state element if all cards are hidden; hide it when at least one card is visible.
+5. On clear (empty string), show all cards; hide empty-state element.
+
+**Implementation Option B — Server-side filtering via URL parameter:**
 1. User types into the search `<input>` on `/`.
-2. On input change (debounce optional), the URL is updated with `?q=<value>` (e.g., via `router.push` or a form submit).
+2. On input change with debounce (recommended: 150–300 ms), the URL is updated with `?q=<value>` via `router.push` or equivalent — **no form submit or Enter key required**.
 3. Server component receives `q` from `searchParams`.
 4. If `q` is non-empty (after trim), server queries: `SELECT * FROM notes WHERE title ILIKE $1 ORDER BY pinned DESC, created_at DESC` with parameter `'%' || q || '%'`.
 5. If `q` is empty or absent, server queries all notes (no WHERE clause).
 6. Results are rendered; if zero results, the empty state is shown.
 7. The search input is pre-populated with the current `q` value so page refreshes preserve the filter.
 
-**Process (client-side approach — acceptable alternative):**
-1. Server renders all notes on initial load.
-2. JavaScript event listener attached to search `<input>`.
-3. On `input` event, iterate note cards; hide any card whose `title` text does not contain the filter string (case-insensitive).
-4. Show empty-state element if all cards are hidden.
-5. On clear, show all cards; hide empty-state element.
+**Regardless of approach chosen**, the observable behavior must match: filtering updates within 200 ms of each keystroke with no user-initiated submit action.
 
 **Inputs:**
 - `q` (string, optional): search / filter text

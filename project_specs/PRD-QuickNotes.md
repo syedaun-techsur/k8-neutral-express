@@ -63,6 +63,8 @@ Developers and individuals working in embedded environments need a frictionless 
 | `pinned` | `boolean` | `NOT NULL DEFAULT false` |
 | `created_at` | `timestamptz` | `NOT NULL DEFAULT now()` |
 
+> **Note:** There is no `updated_at` column — this is a deliberate MVP scope decision. Edits to a note do not update any timestamp.
+
 ---
 
 ## 5. Feature Requirements

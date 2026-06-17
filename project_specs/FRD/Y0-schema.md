@@ -60,6 +60,7 @@ Future candidates (out of scope for MVP):
 - `text` in PostgreSQL has no maximum length; application-level limits are not enforced in this MVP.
 - `timestamptz` stores timestamps with timezone offset; `now()` returns the current transaction time in UTC.
 - `boolean` stores `true`/`false`; PostgreSQL accepts `TRUE`/`FALSE`, `'t'`/`'f'`, `1`/`0` — the application layer should always pass a proper boolean.
+- **No `updated_at` column** — this is a deliberate MVP scope decision. Note edits do not update any timestamp. Implementers must not add `updated_at` to the schema without a spec change.
 
 ---
 
