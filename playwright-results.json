@@ -4,8 +4,7 @@
       "/usr/bin/node",
       "/home/daytona/project/node_modules/.bin/playwright",
       "test",
-      "e2e/uat/quicknotes-a-personal-single-user-mobile.spec.ts",
-      "--reporter=json"
+      "e2e/uat/quicknotes-a-personal-single-user-mobile.spec.ts"
     ],
     "configFile": "/home/daytona/project/playwright.config.ts",
     "rootDir": "/home/daytona/project/e2e/uat",
@@ -43,7 +42,14 @@
     "quiet": false,
     "reporter": [
       [
-        "json"
+        "json",
+        {
+          "outputFile": "playwright-results.json"
+        }
+      ],
+      [
+        "list",
+        null
       ]
     ],
     "reportSlowTests": {
@@ -67,13 +73,13 @@
       "specs": [],
       "suites": [
         {
-          "title": "US-0.1: View the Note List",
+          "title": "US-0.1 – View the Note List",
           "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 39,
+          "line": 59,
           "column": 6,
           "specs": [
             {
-              "title": "navigating to / renders a list of all notes",
+              "title": "navigating to `/` renders a list of all notes stored in the database",
               "ok": true,
               "tags": [],
               "tests": [
@@ -88,12 +94,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 108,
+                      "duration": 113,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.205Z",
+                      "startTime": "2026-06-17T22:59:08.214Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -101,13 +107,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-661ef7723c42089d45fa",
+              "id": "1e774dcfa1bf8858fe37-8193a8d06ea02dab9798",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 52,
+              "line": 64,
               "column": 7
             },
             {
-              "title": "each note entry displays its title",
+              "title": "each note entry displays its `title` so the note is identifiable at a glance",
               "ok": true,
               "tags": [],
               "tests": [
@@ -122,12 +128,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 89,
+                      "duration": 91,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.355Z",
+                      "startTime": "2026-06-17T22:59:08.369Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -135,47 +141,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-5243132da429aa42ce07",
+              "id": "1e774dcfa1bf8858fe37-c937ba80bae2fcf43fcd",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 57,
+              "line": 77,
               "column": 7
             },
             {
-              "title": "pinned notes display a pinned indicator",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 79,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.452Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-201fa0ed7964265d08dc",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 62,
-              "column": 7
-            },
-            {
-              "title": "each note card is a tappable link to /notes/[id]/edit",
+              "title": "pinned notes are displayed with a visible pinned indicator distinct from un-pinned notes",
               "ok": true,
               "tags": [],
               "tests": [
@@ -195,7 +167,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.535Z",
+                      "startTime": "2026-06-17T22:59:08.465Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -203,13 +175,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-210ba20782e00798fc71",
+              "id": "1e774dcfa1bf8858fe37-a32fe4aa569c2bf45d68",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 69,
+              "line": 89,
               "column": 7
             },
             {
-              "title": "\"New note\" button is always visible",
+              "title": "notes are ordered: pinned notes first (newest-first within pinned), then un-pinned notes (newest-first)",
               "ok": true,
               "tags": [],
               "tests": [
@@ -224,12 +196,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 79,
+                      "duration": 179,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.635Z",
+                      "startTime": "2026-06-17T22:59:08.566Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -237,511 +209,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-24bb905e57c1bddf3f3a",
+              "id": "1e774dcfa1bf8858fe37-efb4c60ec017b6ff6bbb",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 75,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-0.2: Empty State When No Notes Exist",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 81,
-          "column": 6,
-          "specs": [
-            {
-              "title": "renders \"No notes yet.\" when no notes exist",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 79,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.719Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-a4dc86a751bfbb3e7dce",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 86,
+              "line": 107,
               "column": 7
             },
             {
-              "title": "empty state includes a \"New note\" link",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 78,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.802Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-4b18c7466366640cff61",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 91,
-              "column": 7
-            },
-            {
-              "title": "no note cards rendered in empty state",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 79,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.885Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-ae32b592e7894f19d964",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 96,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-0.3: Newly Created Note Appears at Top of List",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 102,
-          "column": 6,
-          "specs": [
-            {
-              "title": "after creating a note, browser redirects to / and note is visible",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 148,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:42.968Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-62822d07a42b9ca39264",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 111,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-0.4: Updated Note Title Reflected in List",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 121,
-          "column": 6,
-          "specs": [
-            {
-              "title": "after editing, list shows updated title",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 144,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:43.121Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-d0caf542bd3dd6d4e97b",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 134,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-0.5: Deleted Note No Longer Appears in List",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 144,
-          "column": 6,
-          "specs": [
-            {
-              "title": "after deleting, note no longer appears in list",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 162,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:43.269Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-0b7e9e1d126a6f385b4f",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 157,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-1.1: Filter Notes by Partial Title",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 171,
-          "column": 6,
-          "specs": [
-            {
-              "title": "search input is rendered on list view",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 96,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:43.436Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-8d492e87c63420d8b1a4",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 183,
-              "column": 7
-            },
-            {
-              "title": "typing partial title narrows the list",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 385,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:43.536Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-9759644bfa03be4810b6",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 188,
-              "column": 7
-            },
-            {
-              "title": "clearing search restores full list",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 689,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:43.926Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-b4517f87c06c86e057da",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 198,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-1.2: Empty State When Search Matches Nothing",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 209,
-          "column": 6,
-          "specs": [
-            {
-              "title": "no-match search shows empty state message",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 379,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:44.619Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-b66a7044658d10b069ee",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 219,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-2.1: Create a New Note with Title and Body",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 231,
-          "column": 6,
-          "specs": [
-            {
-              "title": "/notes/new renders a blank form with title, body, pinned, and submit",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 79,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.002Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-9bbd18febe65431c0e6d",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 236,
-              "column": 7
-            },
-            {
-              "title": "title input receives focus automatically on page load",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 64,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.085Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-2a81ef28c49628e89605",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 244,
-              "column": 7
-            },
-            {
-              "title": "filling and submitting creates note and redirects to /",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 129,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.153Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-50695bd9dad52045255a",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 249,
-              "column": 7
-            },
-            {
-              "title": "\"New note\" link navigates to /notes/new",
+              "title": "each note card/row is a tappable link that navigates to `/notes/[id]/edit`",
               "ok": true,
               "tags": [],
               "tests": [
@@ -761,7 +235,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.286Z",
+                      "startTime": "2026-06-17T22:59:08.750Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -769,97 +243,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-b9ea121720666da4660f",
+              "id": "1e774dcfa1bf8858fe37-0968e58008234db62856",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 258,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-2.2: Create a Pinned Note",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 265,
-          "column": 6,
-          "specs": [
-            {
-              "title": "checking pinned and submitting shows pinned note at top with indicator",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 164,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.419Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-11ed65dbbca3bbc498b5",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 270,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-2.3: Block Submission When Title Is Empty",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 281,
-          "column": 6,
-          "specs": [
-            {
-              "title": "shows validation error when title is empty",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 96,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.586Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-7f18f17d03aa9d37bf43",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 282,
+              "line": 131,
               "column": 7
             },
             {
-              "title": "form stays on page after failed validation",
+              "title": "a 'New note' button / link pointing to `/notes/new` is always visible regardless of list content",
               "ok": true,
               "tags": [],
               "tests": [
@@ -874,12 +264,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 97,
+                      "duration": 78,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.686Z",
+                      "startTime": "2026-06-17T22:59:08.883Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -887,55 +277,55 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-d568f3aea0c75bc9f03e",
+              "id": "1e774dcfa1bf8858fe37-21dc07a7b15e4ab556b9",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 290,
-              "column": 7
-            },
-            {
-              "title": "entering valid title and resubmitting proceeds normally",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 145,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.786Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-4faee7b98e8088d42133",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 296,
+              "line": 146,
               "column": 7
             }
           ]
         },
         {
-          "title": "US-3.1: Open a Note and See Its Current Values Pre-filled",
+          "title": "US-0.2 – See the Empty State When No Notes Exist",
           "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 311,
+          "line": 161,
           "column": 6,
           "specs": [
             {
-              "title": "clicking note card navigates to /notes/[id]/edit",
+              "title": "when the notes table has zero rows, the list page renders the text 'No notes yet'",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 79,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:08.966Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-77bdee28cd0face9d44f",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 166,
+              "column": 7
+            },
+            {
+              "title": "the empty state includes a 'New note' button that navigates to `/notes/new`",
               "ok": true,
               "tags": [],
               "tests": [
@@ -955,7 +345,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:45.936Z",
+                      "startTime": "2026-06-17T22:59:09.049Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -963,13 +353,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-c0d9e66baf862f76a6cb",
+              "id": "1e774dcfa1bf8858fe37-f7cc14267a79a59b1e3c",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 324,
+              "line": 173,
               "column": 7
             },
             {
-              "title": "title input is pre-filled with note title",
+              "title": "no note cards are rendered in the empty state",
               "ok": true,
               "tags": [],
               "tests": [
@@ -989,7 +379,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.070Z",
+                      "startTime": "2026-06-17T22:59:09.183Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -997,89 +387,89 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-019b5279575a54ca079a",
+              "id": "1e774dcfa1bf8858fe37-4a93d0616a07c1341f5a",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 330,
-              "column": 7
-            },
-            {
-              "title": "body textarea is pre-filled with note body",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 78,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.153Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-e2b9afd8e485b72eb47a",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 335,
-              "column": 7
-            },
-            {
-              "title": "pinned checkbox is checked for pinned note",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 79,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.236Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-c1ee9d78cea40995a916",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 340,
+              "line": 183,
               "column": 7
             }
           ]
         },
         {
-          "title": "US-3.2: Save an Edited Note and See Updated Title in List",
+          "title": "US-0.3 – Newly Created Note Appears at the Top of the List",
           "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 346,
+          "line": 193,
           "column": 6,
           "specs": [
             {
-              "title": "saving edit redirects to / with updated title visible",
+              "title": "after a successful POST /api/notes, the browser redirects to `/`",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 128,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:09.266Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-7041ef8ce503dd3ee543",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 198,
+              "column": 7
+            },
+            {
+              "title": "the newly created note is visible on the list without a page refresh",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 130,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:09.399Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-05b355539b906f5d068b",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 205,
+              "column": 7
+            },
+            {
+              "title": "if the note is not pinned, it appears first among un-pinned notes (newest-first)",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1099,7 +489,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.319Z",
+                      "startTime": "2026-06-17T22:59:09.534Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1107,21 +497,537 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-780dd407c4379550673a",
+              "id": "1e774dcfa1bf8858fe37-d4876dc8ce330e6300cd",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 359,
+              "line": 214,
               "column": 7
             }
           ]
         },
         {
-          "title": "US-3.3: Toggle Pinned Status on Existing Note",
+          "title": "US-0.4 – Updated Note Title Reflected in the List",
           "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 368,
+          "line": 236,
           "column": 6,
           "specs": [
             {
-              "title": "pinning a note and saving shows it in pinned section",
+              "title": "after a successful PUT /api/notes/[id], the browser redirects to `/`",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 144,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:09.683Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-17616a721f87a8c9eacd",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 241,
+              "column": 7
+            },
+            {
+              "title": "the note card on the list shows the new title (not the old one)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 146,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:09.832Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-b0f8bf1d94eb9a6496d9",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 252,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-0.5 – Deleted Note No Longer Appears in the List",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 271,
+          "column": 6,
+          "specs": [
+            {
+              "title": "after a successful DELETE /api/notes/[id], the browser redirects to `/`",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 162,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:09.982Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-8d05daba95345384ae83",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 276,
+              "column": 7
+            },
+            {
+              "title": "the deleted note's card no longer appears in the list after redirect",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 163,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.149Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-b7f2dc26120a50dcbc1b",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 287,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-1.1 – Filter Notes by Partial Title",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 304,
+          "column": 6,
+          "specs": [
+            {
+              "title": "a search input is rendered at the top of the list view (`/`)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 78,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.316Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-795c54324bd186aba2f4",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 309,
+              "column": 7
+            },
+            {
+              "title": "typing characters into the search input narrows the list to matching notes (case-insensitive substring match)",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 96,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.398Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-d8b66aef8ad9f3b00a7c",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 314,
+              "column": 7
+            },
+            {
+              "title": "only notes whose title matches are shown; non-matching notes are hidden",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 95,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.498Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-0f59bfa8107889945ffc",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 330,
+              "column": 7
+            },
+            {
+              "title": "clearing the search input (empty string) restores the full, unfiltered list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 96,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.598Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-69b09a394f3edc9b9aa9",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 346,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-1.2 – See Empty State When Search Matches Nothing",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 370,
+          "column": 6,
+          "specs": [
+            {
+              "title": "when a non-empty search string matches zero notes, the empty state message is displayed",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 96,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.699Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-b302741ff6bfd0c07003",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 375,
+              "column": 7
+            },
+            {
+              "title": "no note cards are rendered in this filtered empty state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 94,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.799Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-a99367fd592afbc469fd",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 391,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-2.1 – Create a New Note with Title and Body",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 412,
+          "column": 6,
+          "specs": [
+            {
+              "title": "navigating to `/notes/new` renders a blank form with the expected fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 79,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.898Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-9f9990f270938ce407d3",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 417,
+              "column": 7
+            },
+            {
+              "title": "filling title='Groceries' and body='milk, eggs' and submitting creates the note and redirects to `/`",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 130,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:10.981Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-33bd32ad98df4cfe8be8",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 431,
+              "column": 7
+            },
+            {
+              "title": "the new 'Groceries' note is visible on the list",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 129,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:11.116Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-3c0f2c65ad6b81634938",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 441,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-2.2 – Create a Pinned Note",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 455,
+          "column": 6,
+          "specs": [
+            {
+              "title": "checking the `pinned` checkbox and submitting creates a pinned note",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 162,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:11.249Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-c4019edf2d1ae314e5cc",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 460,
+              "column": 7
+            },
+            {
+              "title": "after redirect to `/`, the new note appears in the pinned section at the top of the list",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1141,7 +1047,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.468Z",
+                      "startTime": "2026-06-17T22:59:11.416Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1149,21 +1055,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-c6a4b1cc258242548896",
+              "id": "1e774dcfa1bf8858fe37-6462afaf015082c265c0",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 381,
+              "line": 478,
               "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-3.4: Not-Found State for Missing Note",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 390,
-          "column": 6,
-          "specs": [
+            },
             {
-              "title": "navigating to non-existent note shows not-found message",
+              "title": "the pinned indicator is visible on the note card",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1178,12 +1076,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 63,
+                      "duration": 163,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.651Z",
+                      "startTime": "2026-06-17T22:59:11.598Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1191,13 +1089,199 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-a2be007ae5fb95d2e61d",
+              "id": "1e774dcfa1bf8858fe37-eced6aa2197f01d1091e",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 391,
+              "line": 498,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-2.3 – Block Submission When Title Is Empty",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 514,
+          "column": 6,
+          "specs": [
+            {
+              "title": "if the title input is empty on submit, no API call is made",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 387,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:11.766Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-6a11e7261fb1e3244c79",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 515,
               "column": 7
             },
             {
-              "title": "not-found page provides link back to /",
+              "title": "an inline validation message 'Title is required' is displayed beneath the title input",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 105,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:12.157Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-f79ec780ccfbe0c28278",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 533,
+              "column": 7
+            },
+            {
+              "title": "the form stays on screen with all other field values intact",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 96,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:12.265Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-6088b26b93980995b380",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 542,
+              "column": 7
+            },
+            {
+              "title": "entering a valid title and resubmitting proceeds normally",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 147,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:12.365Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-42abf57cd56fc45a87e5",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 553,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-3.1 – Open a Note and See Its Current Values Pre-filled",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 570,
+          "column": 6,
+          "specs": [
+            {
+              "title": "clicking a note card on `/` navigates to `/notes/[id]/edit`",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 129,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:12.516Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-0ad86c93811314eed83f",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 575,
+              "column": 7
+            },
+            {
+              "title": "the title input is pre-filled with the note's current `title`",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1217,7 +1301,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.718Z",
+                      "startTime": "2026-06-17T22:59:12.649Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1225,13 +1309,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-3d9eacd5920bb55b0c55",
+              "id": "1e774dcfa1bf8858fe37-9195006004ea88aec844",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 396,
+              "line": 585,
               "column": 7
             },
             {
-              "title": "non-integer id segment triggers not-found",
+              "title": "the body textarea is pre-filled with the note's current `body`",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1246,12 +1330,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 63,
+                      "duration": 78,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.801Z",
+                      "startTime": "2026-06-17T22:59:12.733Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1259,21 +1343,55 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-55f3778cc1231ce57d2c",
+              "id": "1e774dcfa1bf8858fe37-d7721a868f15690e603a",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 401,
+              "line": 594,
+              "column": 7
+            },
+            {
+              "title": "the pinned checkbox is checked if `note.pinned === true`",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 112,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:12.815Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-672d2f3c5305624749a5",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 603,
               "column": 7
             }
           ]
         },
         {
-          "title": "US-4.1: Delete a Note with Confirmation",
+          "title": "US-3.2 – Save an Edited Note and See the Updated Title in the List",
           "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 411,
+          "line": 619,
           "column": 6,
           "specs": [
             {
-              "title": "\"Delete\" button is visible on edit page",
+              "title": "changing the title value and clicking 'Save' calls PUT /api/notes/[id]",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1288,12 +1406,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 79,
+                      "duration": 129,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.868Z",
+                      "startTime": "2026-06-17T22:59:12.932Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1301,13 +1419,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-4f42177e791885021a8f",
+              "id": "1e774dcfa1bf8858fe37-c47091730e55b805fd3e",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 424,
+              "line": 624,
               "column": 7
             },
             {
-              "title": "clicking Delete shows confirmation step",
+              "title": "on 200 response, the browser redirects to `/`",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1322,12 +1440,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 114,
+                      "duration": 128,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:46.951Z",
+                      "startTime": "2026-06-17T22:59:13.066Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1335,47 +1453,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-a5e3c7cb2e967a49ab45",
+              "id": "1e774dcfa1bf8858fe37-785ffce907f7fe8e3482",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 429,
+              "line": 645,
               "column": 7
             },
             {
-              "title": "confirming delete calls DELETE API and redirects to /",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 160,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.070Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-ca3e5a500ab54d24a70e",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 435,
-              "column": 7
-            },
-            {
-              "title": "cancelling confirmation returns form to normal state",
+              "title": "the note card on the list shows the updated title",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1395,7 +1479,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.236Z",
+                      "startTime": "2026-06-17T22:59:13.199Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1403,21 +1487,21 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-3952d2f5ad3cc958e7e2",
+              "id": "1e774dcfa1bf8858fe37-f31ac57527b9435667ab",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 443,
+              "line": 653,
               "column": 7
             }
           ]
         },
         {
-          "title": "US-5.1: Retrieve All Notes via API",
+          "title": "US-3.3 – Toggle Pinned Status on an Existing Note",
           "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 455,
+          "line": 668,
           "column": 6,
           "specs": [
             {
-              "title": "GET /api/notes returns 200 with JSON array",
+              "title": "checking or unchecking the `pinned` checkbox and saving updates the pinned value",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1432,12 +1516,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 12,
+                      "duration": 164,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.385Z",
+                      "startTime": "2026-06-17T22:59:13.348Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1445,13 +1529,13 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-33e947cab011bb4f4235",
+              "id": "1e774dcfa1bf8858fe37-79dbb9ecc2bc4db348f0",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 465,
+              "line": 673,
               "column": 7
             },
             {
-              "title": "each note object has required fields",
+              "title": "on return to `/`, the note appears in the correct section based on the new value",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1466,12 +1550,12 @@
                       "workerIndex": 0,
                       "parallelIndex": 0,
                       "status": "passed",
-                      "duration": 8,
+                      "duration": 162,
                       "errors": [],
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.402Z",
+                      "startTime": "2026-06-17T22:59:13.516Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1479,13 +1563,411 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-5e32e5a77791d733d0a2",
+              "id": "1e774dcfa1bf8858fe37-08488abf8296d38b9d3a",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 472,
+              "line": 692,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-3.4 – See Not-Found State for a Missing Note",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 717,
+          "column": 6,
+          "specs": [
+            {
+              "title": "navigating to `/notes/[id]/edit` for a non-existent `id` renders 'Note not found.'",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 77,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:13.683Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-1f077e1304ccf16f20e7",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 718,
               "column": 7
             },
             {
-              "title": "GET /api/notes?q=<string> filters by title",
+              "title": "the form is not rendered in the not-found state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 80,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:13.764Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-411816f86d6b0411fe99",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 725,
+              "column": 7
+            },
+            {
+              "title": "a link back to `/` is provided on the not-found page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 79,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:13.849Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-7e85577a560af716352f",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 730,
+              "column": 7
+            },
+            {
+              "title": "a non-integer `id` segment in the URL also triggers the not-found state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 78,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:13.932Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-1deb7d9aed44a0273fa0",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 736,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-4.1 – Delete a Note with Confirmation",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 748,
+          "column": 6,
+          "specs": [
+            {
+              "title": "a 'Delete' button is visible on `/notes/[id]/edit` alongside the Save CTA",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 79,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:14.015Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-133ac28a33750b507ff1",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 753,
+              "column": 7
+            },
+            {
+              "title": "clicking 'Delete' triggers a confirmation step before any API call is made",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 305,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:14.099Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-e6a95c16fb5635a65c8b",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 763,
+              "column": 7
+            },
+            {
+              "title": "confirming the deletion redirects to `/`",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 169,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:14.409Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-663d2ff88a58bc12cdaf",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 788,
+              "column": 7
+            },
+            {
+              "title": "the deleted note no longer appears in the list after redirect",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 163,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:14.582Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-78c0dedccd5ad913fb85",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 796,
+              "column": 7
+            },
+            {
+              "title": "cancelling the confirmation returns the form to its normal state",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 194,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:14.750Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-67e228a223c6fd74f683",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 808,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-5.1 – Retrieve All Notes via API",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 835,
+          "column": 6,
+          "specs": [
+            {
+              "title": "GET /api/notes returns HTTP 200 with Content-Type: application/json",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:14.949Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-3231b3b64e6f9fd11582",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 840,
+              "column": 7
+            },
+            {
+              "title": "the response body is a JSON array of Note objects",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:14.959Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-5d550de40a43a0a40f91",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 849,
+              "column": 7
+            },
+            {
+              "title": "GET /api/notes?q=<string> returns only notes whose title contains the string (case-insensitive)",
               "ok": true,
               "tags": [],
               "tests": [
@@ -1505,7 +1987,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.413Z",
+                      "startTime": "2026-06-17T22:59:14.968Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -1513,765 +1995,21 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-1364ff88421dc9f53cc4",
+              "id": "1e774dcfa1bf8858fe37-968986e87456601e31ef",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 484,
+              "line": 863,
               "column": 7
             }
           ]
         },
         {
-          "title": "US-5.2: Create a Note via API",
+          "title": "US-5.2 – Create a Note via API",
           "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 493,
+          "line": 884,
           "column": 6,
           "specs": [
             {
-              "title": "POST /api/notes with valid body returns 201 with created note",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 4,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.426Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-5f4588b27d9ea68c35dd",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 498,
-              "column": 7
-            },
-            {
-              "title": "POST /api/notes with missing title returns 400",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.433Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-141761a72b561168d972",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 509,
-              "column": 7
-            },
-            {
-              "title": "POST /api/notes with malformed JSON returns 400",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 3,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.440Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-64f142ef550691483150",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 518,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-5.3: Fetch, Update, and Delete a Single Note via API",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 527,
-          "column": 6,
-          "specs": [
-            {
-              "title": "GET /api/notes/[id] returns 200 with note",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.446Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-0022b26d194efb42c008",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 540,
-              "column": 7
-            },
-            {
-              "title": "GET /api/notes/[id] for non-existent id returns 404",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.455Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-0d9b580b4688209b3071",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 547,
-              "column": 7
-            },
-            {
-              "title": "PUT /api/notes/[id] with valid body returns 200 with updated note",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.464Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-30fee0d354323bfd3e50",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 554,
-              "column": 7
-            },
-            {
-              "title": "PUT /api/notes/[id] with empty title returns 400",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.474Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-0d881969a96262834546",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 564,
-              "column": 7
-            },
-            {
-              "title": "DELETE /api/notes/[id] returns 204",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.484Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-76f74bfe886a4dbf186f",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 571,
-              "column": 7
-            },
-            {
-              "title": "DELETE /api/notes/[id] for non-existent id returns 404",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 6,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.493Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-6f4fbd1c7dd4cd4dcae7",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 576,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-6.1: Confirm App Liveness via Health Endpoint",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 586,
-          "column": 6,
-          "specs": [
-            {
-              "title": "GET /api/health returns 200 with {\"status\":\"ok\"}",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.502Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-0ab7f92e4397610d0458",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 587,
-              "column": 7
-            },
-            {
-              "title": "POST /api/health returns 405 Method Not Allowed",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.508Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-9dfdd2ddc23c001a8840",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 594,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-7.1: Notes Table Created Automatically on First Start",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 604,
-          "column": 6,
-          "specs": [
-            {
-              "title": "GET /api/health returns 200 after startup (table exists)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 2,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.517Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-00156a8624edde430adc",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 605,
-              "column": 7
-            },
-            {
-              "title": "CRUD operations work (table schema is correct)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 5,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.522Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-883af014ee6b96ccfed3",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 610,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-7.2: Data Survives a Server Restart",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 624,
-          "column": 6,
-          "specs": [
-            {
-              "title": "note created via API is retrievable (persistence check)",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 7,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.531Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-6b9aa3fd80f09706d318",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 629,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-8.1: Use the App Comfortably on a Mobile Viewport",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 645,
-          "column": 6,
-          "specs": [
-            {
-              "title": "home page renders without horizontal scroll at 375px",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 70,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.541Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-daf06056fc6e7cd3739b",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 648,
-              "column": 7
-            },
-            {
-              "title": "new note page renders without horizontal scroll at 375px",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 62,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.614Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-d647f61040c992fdf799",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 655,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-8.2: Submit and Delete Buttons Are Visually Distinct",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 663,
-          "column": 6,
-          "specs": [
-            {
-              "title": "Save button and Delete button are both visible on edit page",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 85,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.680Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-375685c0300a7ba7abb3",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 676,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-8.3: All Form Inputs Are Accessible",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 683,
-          "column": 6,
-          "specs": [
-            {
-              "title": "all inputs on new note form have associated labels",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 62,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.769Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-bffbfd905bab80788c8d",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 684,
-              "column": 7
-            },
-            {
-              "title": "aria-invalid is set on title input when validation fails",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 97,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.835Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-e3d98a7b297fef4be499",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 690,
-              "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-9.1: App Renders Inside an Embedded Preview Iframe",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 701,
-          "column": 6,
-          "specs": [
-            {
-              "title": "HTTP response does not include X-Frame-Options: DENY",
-              "ok": true,
-              "tags": [],
-              "tests": [
-                {
-                  "timeout": 30000,
-                  "annotations": [],
-                  "expectedStatus": "passed",
-                  "projectId": "",
-                  "projectName": "",
-                  "results": [
-                    {
-                      "workerIndex": 0,
-                      "parallelIndex": 0,
-                      "status": "passed",
-                      "duration": 10,
-                      "errors": [],
-                      "stdout": [],
-                      "stderr": [],
-                      "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.936Z",
-                      "annotations": [],
-                      "attachments": []
-                    }
-                  ],
-                  "status": "expected"
-                }
-              ],
-              "id": "1e774dcfa1bf8858fe37-f0190e0695e1b4303584",
-              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 702,
-              "column": 7
-            },
-            {
-              "title": "CSP header does not contain frame-ancestors none",
+              "title": "POST /api/notes with a valid body returns 201 with the created Note object",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2291,7 +2029,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.949Z",
+                      "startTime": "2026-06-17T22:59:14.982Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2299,21 +2037,47 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-3ddc0aa6e45111fb981e",
+              "id": "1e774dcfa1bf8858fe37-e5c1f491a9e529808e31",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 711,
+              "line": 889,
               "column": 7
-            }
-          ]
-        },
-        {
-          "title": "US-9.2: App Is Reachable on Port 3000",
-          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-          "line": 720,
-          "column": 6,
-          "specs": [
+            },
             {
-              "title": "app is reachable at http://localhost:3000",
+              "title": "POST /api/notes with a missing or empty `title` returns 400 with { error: 'TITLE_REQUIRED' }",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 7,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:14.993Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-59cc58e26a3cedcecbe4",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 904,
+              "column": 7
+            },
+            {
+              "title": "POST /api/notes with malformed JSON returns 400 with { error: 'BAD_REQUEST' }",
               "ok": true,
               "tags": [],
               "tests": [
@@ -2333,7 +2097,7 @@
                       "stdout": [],
                       "stderr": [],
                       "retry": 0,
-                      "startTime": "2026-06-17T22:50:47.960Z",
+                      "startTime": "2026-06-17T22:59:15.004Z",
                       "annotations": [],
                       "attachments": []
                     }
@@ -2341,9 +2105,415 @@
                   "status": "expected"
                 }
               ],
-              "id": "1e774dcfa1bf8858fe37-66c418193df61e35edd0",
+              "id": "1e774dcfa1bf8858fe37-32a2be42e7ab748b5eee",
               "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
-              "line": 721,
+              "line": 926,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-5.3 – Fetch, Update, and Delete a Single Note via API",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 943,
+          "column": 6,
+          "specs": [
+            {
+              "title": "GET /api/notes/[id] for a valid existing id returns 200 with the Note object",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.011Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-73097ff8212d8b9ca5af",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 948,
+              "column": 7
+            },
+            {
+              "title": "GET /api/notes/[id] for a non-existent id returns 404 with { error: 'NOTE_NOT_FOUND' }",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 5,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.021Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-8c78348a91104c1921b6",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 959,
+              "column": 7
+            },
+            {
+              "title": "PUT /api/notes/[id] with valid body returns 200 with the updated Note object",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.030Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-d29cd95738e8844b3906",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 968,
+              "column": 7
+            },
+            {
+              "title": "PUT /api/notes/[id] with empty title returns 400 with { error: 'TITLE_REQUIRED' }",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.040Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-a2ad74931db458161885",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 984,
+              "column": 7
+            },
+            {
+              "title": "DELETE /api/notes/[id] for an existing note returns 204 with no response body",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.050Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-85e6da5645d27313a184",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 997,
+              "column": 7
+            },
+            {
+              "title": "DELETE /api/notes/[id] for a non-existent id returns 404 with { error: 'NOTE_NOT_FOUND' }",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.060Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-5bdfc92555bda11116bf",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 1007,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-6.1 – Confirm App Liveness via Health Endpoint",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 1021,
+          "column": 6,
+          "specs": [
+            {
+              "title": "GET /api/health returns HTTP 200 with Content-Type: application/json",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.067Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-daa65ef559089aec9d30",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 1022,
+              "column": 7
+            },
+            {
+              "title": "the response body is exactly {\"status\":\"ok\"}",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.072Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-1c039b5fd902225b94c2",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 1031,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-9.1 – App Renders Inside an Embedded Preview Iframe",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 1042,
+          "column": 6,
+          "specs": [
+            {
+              "title": "HTTP responses do not include an X-Frame-Options: DENY header",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.077Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-d2bc32587725d1ba27d2",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 1043,
+              "column": 7
+            },
+            {
+              "title": "next.config.mjs exists at the project root; next.config.ts does not exist",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 2,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.090Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-d479211e66904d42f565",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 1050,
+              "column": 7
+            }
+          ]
+        },
+        {
+          "title": "US-9.2 – App Is Reachable on Port 3000",
+          "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+          "line": 1064,
+          "column": 6,
+          "specs": [
+            {
+              "title": "the app is reachable at http://localhost:3000",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "",
+                  "projectName": "",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 10,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-17T22:59:15.095Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "1e774dcfa1bf8858fe37-afa193748df7bb4954ce",
+              "file": "quicknotes-a-personal-single-user-mobile.spec.ts",
+              "line": 1065,
               "column": 7
             }
           ]
@@ -2353,9 +2523,9 @@
   ],
   "errors": [],
   "stats": {
-    "startTime": "2026-06-17T22:50:41.955Z",
-    "duration": 6033.758,
-    "expected": 61,
+    "startTime": "2026-06-17T22:59:07.986Z",
+    "duration": 7146.173,
+    "expected": 67,
     "skipped": 0,
     "unexpected": 0,
     "flaky": 0
